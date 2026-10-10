@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#211711">
+<meta name="description" content="NOIR CAFÉ — اكتشف قهوتك المفضلة واستمتع بتجربة قهوة استثنائية.">
+<title>NOIR CAFÉ | Coffee & More</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --dark:#211711;
+  --dark2:#302219;
+  --brown:#65442f;
+  --caramel:#c58b55;
+  --cream:#f7f0e5;
+  --white:#fffdf9;
+  --muted:#a99a8c;
+  --border:rgba(197,139,85,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  background:var(--cream);
+  color:var(--dark);
+  font-family:'Cairo',sans-serif;
+  overflow-x:hidden;
+}
+body[dir="ltr"]{font-family:'Cairo',sans-serif}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+img{display:block;width:100%;object-fit:cover}
+button:focus-visible,a:focus-visible{outline:2px solid var(--caramel);outline-offset:4px}
+.container{width:min(1160px,90%);margin:auto}
+.english{font-family:'Playfair Display',serif}
+.announcement{
+  background:var(--caramel);color:#211711;text-align:center;
+  padding:8px 12px;font-size:12px;font-weight:800;letter-spacing:.4px
+}
+header{
+  background:var(--dark);color:var(--cream);position:sticky;top:0;
+  z-index:50;border-bottom:1px solid var(--border)
+}
+.nav{
+  min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px
+}
+.logo{font-size:25px;font-weight:800;letter-spacing:2px;line-height:1}
+.logo span{color:var(--caramel)}
+.logo small{display:block;font-size:9px;letter-spacing:4px;color:var(--muted);margin-top:6px;text-align:center}
+.navlinks{display:flex;align-items:center;gap:25px;font-size:13px}
+.navlinks a{transition:.2s}
+.navlinks a:hover{color:var(--caramel)}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.icon-btn{
+  position:relative;background:transparent;color:var(--cream);
+  border:1px solid var(--border);border-radius:50%;width:41px;height:41px;
+  display:grid;place-items:center;font-size:16px
+}
+.cart-count{
+  position:absolute;top:-5px;right:-5px;background:var(--caramel);color:var(--dark);
+  min-width:18px;height:18px;border-radius:20px;font-size:10px;display:grid;place-items:center
+}
+.lang-btn{
+  border:1px solid var(--border);background:transparent;color:var(--cream);
+  border-radius:30px;padding:9px 13px;font-size:12px
+}
+.menu-toggle{display:none}
+.hero{
+  background:var(--dark);color:var(--cream);position:relative;
+  overflow:hidden;min-height:620px;display:flex;align-items:center
+}
+.hero::before{
+  content:"";position:absolute;width:440px;height:440px;border-radius:50%;
+  background:#8e572b;filter:blur(140px);opacity:.2;top:10%;left:-140px
+}
+.hero-grid{
+  position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:55px;padding-top:60px;padding-bottom:75px
+}
+.eyebrow{
+  color:var(--caramel);font-size:12px;letter-spacing:2px;
+  font-weight:800;margin-bottom:19px
+}
+.hero h1{font-size:clamp(39px,5vw,68px);line-height:1.25;font-weight:800;margin-bottom:20px}
+.hero h1 span{color:var(--caramel)}
+.hero p{color:#c9bcb0;font-size:14px;line-height:2.2;max-width:460px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  border:1px solid var(--caramel);background:var(--caramel);color:var(--dark);
+  border-radius:5px;padding:13px 23px;font-weight:800;font-size:13px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.25s
+}
+.btn:hover{transform:translateY(-3px);background:#d9a36e}
+.btn-outline{background:transparent;color:var(--cream)}
+.btn-outline:hover{color:var(--dark)}
+.hero-note{margin-top:33px;display:flex;gap:25px;flex-wrap:wrap;color:#c9bcb0;font-size:11px}
+.hero-note span::first-letter{color:var(--caramel)}
+.hero-photo{position:relative;padding:0 0 26px 26px}
+.hero-photo::after{
+  content:"";position:absolute;inset:24px 24px 0 0;border:1px solid var(--caramel);z-index:0
+}
+.hero-photo img{
+  height:455px;position:relative;z-index:1;border-radius:3px;
+  box-shadow:0 25px 70px #0005
+}
+.photo-label{
+  position:absolute;z-index:2;bottom:0;left:0;background:var(--caramel);
+  color:var(--dark);padding:17px 22px;font-size:12px;font-weight:800
+}
+.section{padding:95px 0}
+.section-head{text-align:center;margin-bottom:42px}
+.section-head .eyebrow{margin-bottom:10px}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin-bottom:12px}
+.section-head p{font-size:13px;color:#827264;line-height:2}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feature{
+  background:var(--white);padding:29px 25px;text-align:center;
+  border:1px solid #eadfd1;border-radius:5px;transition:.25s
+}
+.feature:hover{transform:translateY(-5px);border-color:var(--caramel)}
+.feature .feature-icon{font-size:30px;margin-bottom:13px}
+.feature h3{font-size:16px;margin-bottom:9px}
+.feature p{font-size:12px;color:#827264;line-height:2}
+.menu-section{background:#eee4d6}
+.menu-filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.filter{
+  padding:9px 19px;border:1px solid #d7c6b3;background:transparent;
+  color:var(--dark);border-radius:30px;font-size:12px;transition:.2s
+}
+.filter.active,.filter:hover{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+.product{
+  background:var(--white);border:1px solid #e6d8c7;border-radius:6px;
+  overflow:hidden;transition:.25s
+}
+.product:hover{transform:translateY(-5px);box-shadow:0 15px 35px #39271a12}
+.product-img{height:235px;position:relative;overflow:hidden;background:#e4d5c4}
+.product-img img{height:100%;transition:transform .5s}
+.product:hover .product-img img{transform:scale(1.06)}
+.tag{
+  position:absolute;top:13px;right:13px;background:var(--caramel);color:var(--dark);
+  padding:5px 11px;border-radius:3px;font-size:10px;font-weight:800
+}
+.product-info{padding:19px}
+.product-top{display:flex;justify-content:space-between;align-items:start;gap:10px}
+.product h3{font-size:15px}
+.product .en-name{font-size:11px;color:#988474;margin-top:4px}
+.price{color:#956031;font-weight:800;font-size:14px;white-space:nowrap}
+.product-desc{font-size:11px;color:#847668;line-height:1.9;margin:12px 0 17px;min-height:40px}
+.add-btn{
+  background:var(--dark);color:var(--cream);border:0;width:100%;
+  border-radius:4px;padding:11px;font-size:12px;font-weight:700;transition:.2s
+}
+.add-btn:hover{background:var(--brown)}
+.add-btn.added{background:#476448}
+.about{
+  background:var(--dark);color:var(--cream);overflow:hidden
+}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:65px}
+.about-image{position:relative}
+.about-image img{height:410px;border-radius:4px}
+.about-image::before{
+  content:"";position:absolute;top:-14px;right:-14px;width:70%;height:70%;
+  border:1px solid var(--caramel);z-index:0
+}
+.about-image img{position:relative;z-index:1}
+.about-copy h2{font-size:clamp(30px,4vw,44px);margin-bottom:19px}
+.about-copy h2 span{color:var(--caramel)}
+.about-copy p{color:#c9bcb0;font-size:13px;line-height:2.4;margin-bottom:15px}
+.about-stats{display:flex;gap:35px;margin-top:27px;flex-wrap:wrap}
+.stat strong{display:block;color:var(--caramel);font-size:25px}
+.stat span{font-size:11px;color:#c9bcb0}
+.visit{background:#e8d7c4}
+.visit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.visit-card{padding:28px;background:var(--white);border-radius:4px}
+.visit-card .big-icon{font-size:25px;margin-bottom:13px}
+.visit-card h3{font-size:15px;margin-bottom:10px}
+.visit-card p{font-size:12px;color:#827264;line-height:2}
+.contact-box{
+  background:var(--dark2);color:var(--cream);padding:48px;
+  border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:25px
+}
+.contact-box h2{font-size:clamp(23px,3vw,34px);margin-bottom:9px}
+.contact-box p{color:#c9bcb0;font-size:12px;line-height:2}
+footer{background:var(--dark);color:var(--cream);padding:44px 0 22px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px;padding-bottom:35px}
+.footer-brand p{color:#b9aa9b;font-size:12px;line-height:2;margin-top:15px;max-width:300px}
+.footer-col h3{font-size:14px;margin-bottom:14px;color:var(--caramel)}
+.footer-col a,.footer-col p{display:block;font-size:12px;color:#b9aa9b;margin-bottom:11px}
+.footer-col a:hover{color:var(--cream)}
+.copyright{border-top:1px solid var(--border);padding-top:20px;text-align:center;color:#a99a8c;font-size:11px}
+.copyright span{color:var(--caramel)}
+.overlay{
+  position:fixed;inset:0;background:#0009;z-index:100;
+  opacity:0;visibility:hidden;transition:.25s
+}
+.overlay.show{opacity:1;visibility:visible}
+.cart-panel{
+  position:fixed;z-index:101;top:0;bottom:0;left:0;width:min(420px,100%);
+  background:var(--white);padding:24px;display:flex;flex-direction:column;
+  transform:translateX(-105%);transition:.3s;box-shadow:10px 0 40px #0002
+}
+.cart-panel.open{transform:translateX(0)}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid #e8ddd0}
+.cart-header h2{font-size:22px}
+.close-btn{background:none;border:0;font-size:27px;color:var(--dark)}
+.cart-items{flex:1;overflow-y:auto;padding:18px 0}
+.cart-item{display:grid;grid-template-columns:65px 1fr auto;gap:12px;align-items:center;margin-bottom:17px}
+.cart-item img{height:65px;border-radius:4px}
+.cart-item h4{font-size:12px}
+.cart-item p{font-size:12px;color:#956031;margin-top:5px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:8px}
+.qty button{width:25px;height:25px;border:1px solid #dfd0c0;background:#fff;border-radius:3px}
+.remove-btn{background:none;border:0;color:#9c5948;font-size:11px;margin-top:6px}
+.cart-footer{border-top:1px solid #e8ddd0;padding-top:18px}
+.total-line{display:flex;justify-content:space-between;font-weight:800;margin-bottom:15px}
+.cart-footer .btn{width:100%}
+.empty-cart{text-align:center;color:#827264;padding:65px 10px;line-height:2;font-size:13px}
+.toast{
+  position:fixed;z-index:150;bottom:25px;left:50%;
+  transform:translate(-50%,20px);background:var(--dark);color:white;
+  padding:12px 20px;border-radius:30px;font-size:12px;
+  opacity:0;pointer-events:none;transition:.25s;white-space:nowrap
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+[hidden]{display:none!important}
+@media(max-width:850px){
+  .navlinks{gap:13px}
+  .navlinks a{font-size:11px}
+  .hero-grid{gap:28px}
+  .hero-photo img{height:390px}
+  .product-img{height:200px}
+  .about-grid{gap:35px}
+  .contact-box{padding:35px}
+}
+@media(max-width:650px){
+  .nav{min-height:68px}
+  .logo{font-size:21px}
+  .navlinks{
+    display:none;position:absolute;top:100%;right:0;left:0;background:var(--dark);
+    padding:22px 5%;border-top:1px solid var(--border);flex-direction:column;align-items:stretch;gap:0
+  }
+  .navlinks.show{display:flex}
+  .navlinks a{font-size:14px;padding:12px 0;border-bottom:1px solid var(--border)}
+  .menu-toggle{display:grid}
+  .hero{min-height:unset}
+  .hero-grid{grid-template-columns:1fr;padding-top:48px;padding-bottom:55px;gap:34px}
+  .hero h1{font-size:42px}
+  .hero-photo{padding:0 0 18px 18px}
+  .hero-photo img{height:330px}
+  .section{padding:65px 0}
+  .features,.products,.visit-grid{grid-template-columns:1fr}
+  .product-img{height:270px}
+  .about-grid{grid-template-columns:1fr;gap:35px}
+  .about-image img{height:300px}
+  .about-copy{order:-1}
+  .contact-box{flex-direction:column;align-items:flex-start;padding:28px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:25px}
+  .footer-brand{grid-column:1/-1}
+  .section-head{margin-bottom:30px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<div class="announcement" data-ar="☕ قهوتك المفضلة مستنياك — يومك يبدأ من هنا" data-en="☕ Your favorite coffee is waiting — start your day here">
+  ☕ قهوتك المفضلة مستنياك — يومك يبدأ من هنا
+</div>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo english">NOIR<span>.</span><small>CAFÉ & ROASTERY</small></a>
+
+    <nav class="navlinks" id="navlinks">
+      <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+      <a href="#menu" data-ar="المنيو" data-en="Menu">المنيو</a>
+      <a href="#about" data-ar="عن الكوفي" data-en="Our Story">عن الكوفي</a>
+      <a href="#visit" data-ar="زورنا" data-en="Visit Us">زورنا</a>
+      <a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn" aria-label="Change language">EN</button>
+      <button class="icon-btn" id="openCart" aria-label="Open shopping cart">
+        🛒<span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow" data-ar="أهلاً بيك في عالم القهوة" data-en="WELCOME TO THE WORLD OF COFFEE">أهلاً بيك في عالم القهوة</div>
+      <h1 data-ar="مش مجرد قهوة...<br>دي <span>حكاية مزاج.</span>" data-en="More than coffee...<br>it's a <span>state of mind.</span>">مش مجرد قهوة...<br>دي <span>حكاية مزاج.</span></h1>
+      <p data-ar="من أول رشفة لآخر لحظة، بنقدملك قهوة معمولة بحب، ومذاق يخلي كل لحظة مختلفة. خُد نفس، واختار قهوتك." data-en="From the first sip to the last moment, we serve coffee made with love and flavor that makes every moment special. Take a breath and find your coffee.">
+        من أول رشفة لآخر لحظة، بنقدملك قهوة معمولة بحب، ومذاق يخلي كل لحظة مختلفة. خُد نفس، واختار قهوتك.
+      </p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn" data-ar="اكتشف المنيو ↙" data-en="Explore Menu ↙">اكتشف المنيو ↙</a>
+        <a href="#about" class="btn btn-outline" data-ar="حكايتنا" data-en="Our Story">حكايتنا</a>
+      </div>
+      <div class="hero-note">
+        <span data-ar="✦ حبوب قهوة مختارة" data-en="✦ Carefully Selected Beans">✦ حبوب قهوة مختارة</span>
+        <span data-ar="✦ تحضير طازة" data-en="✦ Freshly Brewed">✦ تحضير طازة</span>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85" alt="A cozy specialty coffee shop" fetchpriority="high">
+      <div class="photo-label english">GOOD COFFEE. GOOD MOOD.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-ar="ليه NOIR؟" data-en="WHY NOIR?">ليه NOIR؟</div>
+      <h2 data-ar="تفاصيل صغيرة، فرق كبير" data-en="Little Details. Big Difference.">تفاصيل صغيرة، فرق كبير</h2>
+      <p data-ar="كل كوب ليه حكاية، وإحنا مهتمين بكل تفصيلة فيها." data-en="Every cup has a story, and we care about every detail.">كل كوب ليه حكاية، وإحنا مهتمين بكل تفصيلة فيها.</p>
+    </div>
+    <div class="features">
+      <article class="feature">
+        <div class="feature-icon">☕</div>
+        <h3 data-ar="قهوة بجودة عالية" data-en="Quality Coffee">قهوة بجودة عالية</h3>
+        <p data-ar="اختيارات مميزة من مشروبات القهوة بطعم غني ومتوازن." data-en="Thoughtfully selected coffee drinks with a rich, balanced taste.">اختيارات مميزة من مشروبات القهوة بطعم غني ومتوازن.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">🤎</div>
+        <h3 data-ar="كل كوب معمول بحب" data-en="Made with Love">كل كوب معمول بحب</h3>
+        <p data-ar="اهتمام بالتحضير والتفاصيل عشان تستمتع بكل رشفة." data-en="Care in every preparation so you can enjoy every sip.">اهتمام بالتحضير والتفاصيل عشان تستمتع بكل رشفة.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">✨</div>
+        <h3 data-ar="مزاج على مزاجك" data-en="Your Kind of Mood">مزاج على مزاجك</h3>
+        <p data-ar="اختار مشروبك المفضل وخلّي لحظتك أحلى." data-en="Pick your favorite drink and make the moment yours.">اختار مشروبك المفضل وخلّي لحظتك أحلى.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow english">THE MENU</div>
+      <h2 data-ar="اختار كوبك المفضل" data-en="Find Your Favorite Cup">اختار كوبك المفضل</h2>
+      <p data-ar="من الإسبريسو القوي للاتيه الكريمي، فيه حاجة على مزاجك." data-en="From bold espresso to creamy latte, there's something for your mood.">من الإسبريسو القوي للاتيه الكريمي، فيه حاجة على مزاجك.</p>
+    </div>
+
+    <div class="menu-filters" id="filters">
+      <button class="filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+      <button class="filter" data-filter="hot" data-ar="قهوة ساخنة" data-en="Hot Coffee">قهوة ساخنة</button>
+      <button class="filter" data-filter="cold" data-ar="قهوة باردة" data-en="Cold Coffee">قهوة باردة</button>
+      <button class="filter" data-filter="other" data-ar="مشروبات تانية" data-en="Other Drinks">مشروبات تانية</button>
+    </div>
+
+    <div class="products" id="products"></div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85" alt="Freshly prepared coffee" loading="lazy">
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow" data-ar="حكايتنا بدأت من هنا" data-en="OUR STORY STARTS HERE">حكايتنا بدأت من هنا</div>
+      <h2 data-ar="لحظتك الهادية<br>في <span>عالم سريع.</span>" data-en="Your Quiet Moment<br>in a <span>Fast World.</span>">لحظتك الهادية<br>في <span>عالم سريع.</span></h2>
+      <p data-ar="في NOIR، القهوة مش مجرد مشروب. هي بداية يوم، واستراحة وسط الزحمة، وقعدة حلوة مع ناس بتحبهم." data-en="At NOIR, coffee is more than a drink. It's a start to your day, a pause in the rush, and a good moment with people you love.">
+        في NOIR، القهوة مش مجرد مشروب. هي بداية يوم، واستراحة وسط الزحمة، وقعدة حلوة مع ناس بتحبهم.
+      </p>
+      <p data-ar="عملنا التجربة دي عشان كل زيارة تبقى فرصة تفصل شوية وتستمتع بطعمك المفضل." data-en="We created this experience so every visit is a chance to slow down and enjoy your favorite flavor.">
+        عملنا التجربة دي عشان كل زيارة تبقى فرصة تفصل شوية وتستمتع بطعمك المفضل.
+      </p>
+      <div class="about-stats">
+        <div class="stat"><strong>100%</strong><span data-ar="حب للقهوة" data-en="Coffee Passion">حب للقهوة</span></div>
+        <div class="stat"><strong>∞</strong><span data-ar="لحظات حلوة" data-en="Good Moments">لحظات حلوة</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section visit" id="visit">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-ar="مستنيين زيارتك" data-en="COME SAY HELLO">مستنيين زيارتك</div>
+      <h2 data-ar="خلي القهوة تجمعنا" data-en="Let's Meet Over Coffee">خلي القهوة تجمعنا</h2>
+      <p data-ar="تفاصيل الزيارة والتواصل هتلاقيها هنا." data-en="Find our visit and contact details here.">تفاصيل الزيارة والتواصل هتلاقيها هنا.</p>
+    </div>
+    <div class="visit-grid">
+      <article class="visit-card">
+        <div class="big-icon">📍</div>
+        <h3 data-ar="مكاننا" data-en="Our Location">مكاننا</h3>
+        <p data-ar="أضف عنوان الكوفي هنا قبل نشر الموقع." data-en="Add your café address here before publishing.">أضف عنوان الكوفي هنا قبل نشر الموقع.</p>
+      </article>
+      <article class="visit-card">
+        <div class="big-icon">🕒</div>
+        <h3 data-ar="مواعيد العمل" data-en="Opening Hours">مواعيد العمل</h3>
+        <p data-ar="أضف أيام ومواعيد العمل الفعلية هنا." data-en="Add your actual opening days and hours here.">أضف أيام ومواعيد العمل الفعلية هنا.</p>
+      </article>
+      <article class="visit-card">
+        <div class="big-icon">📱</div>
+        <h3 data-ar="اطلب واستفسر" data-en="Order & Ask">اطلب واستفسر</h3>
+        <p data-ar="اطلب مشروبك من خلال الواتساب بعد إعداد رقم الكوفي." data-en="Order your drink through WhatsApp after setting the café number.">اطلب مشروبك من خلال الواتساب بعد إعداد رقم الكوفي.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div>
+        <div class="eyebrow english">YOUR NEXT CUP IS WAITING</div>
+        <h2 data-ar="جاهز لكوب قهوتك؟ ☕" data-en="Ready for Your Next Cup? ☕">جاهز لكوب قهوتك؟ ☕</h2>
+        <p data-ar="اختار من المنيو، ضيف طلبك للسلة، وابعتلنا الأوردر." data-en="Choose from the menu, add to your cart, and send us your order.">اختار من المنيو، ضيف طلبك للسلة، وابعتلنا الأوردر.</p>
+      </div>
+      <button class="btn" id="contactOrder" data-ar="اطلب دلوقتي ↙" data-en="Order Now ↙">اطلب دلوقتي ↙</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo english">NOIR<span>.</span><small>CAFÉ & ROASTERY</small></a>
+        <p data-ar="قهوتك المفضلة، في مكان معمول عشان اللحظات الحلوة." data-en="Your favorite coffee, in a place made for good moments.">قهوتك المفضلة، في مكان معمول عشان اللحظات الحلوة.</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h3>
+        <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+        <a href="#menu" data-ar="المنيو" data-en="Menu">المنيو</a>
+        <a href="#about" data-ar="عن الكوفي" data-en="Our Story">عن الكوفي</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h3>
+        <a href="#visit" data-ar="العنوان والمواعيد" data-en="Address & Hours">العنوان والمواعيد</a>
+        <a href="#contact" data-ar="اطلب أوردر" data-en="Place an Order">اطلب أوردر</a>
+        <p class="english">Coffee made with love.</p>
+      </div>
+    </div>
+    <div class="copyright">
+      © <span id="year"></span> <span>NOIR CAFÉ</span> — <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="cart-panel" id="cartPanel" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-header">
+    <h2 data-ar="سلة مشترياتك 🛒" data-en="Your Cart 🛒">سلة مشترياتك 🛒</h2>
+    <button class="close-btn" id="closeCart" aria-label="Close cart">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="total-line">
+      <span data-ar="الإجمالي" data-en="Total">الإجمالي</span>
+      <span id="cartTotal">0 ج.م</span>
+    </div>
+    <button class="btn" id="checkout" data-ar="اطلب عبر واتساب ↙" data-en="Order via WhatsApp ↙">اطلب عبر واتساب ↙</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/*
+  قبل نشر الموقع:
+  1. غيّري رقم WHATSAPP إلى رقم الكوفي بصيغة دولية من غير +.
+  2. عدّلي الأسعار والعنوان ومواعيد العمل حسب الحقيقة.
+  3. الموقع تجريبي لحد ما تضيفي بيانات الكوفي الفعلية.
+*/
+const WHATSAPP = "201000000000"; // استبدليه برقم الكوفي الحقيقي
+
+const productsData = [
+  {
+    id:1,category:"hot",nameAr:"إسبريسو",nameEn:"Espresso",
+    descAr:"جرعة قهوة مركزة لعشاق الطعم القوي.",descEn:"A bold, concentrated shot for true coffee lovers.",
+    price:65,tagAr:"كلاسيك",tagEn:"Classic",
+    image:"https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:2,category:"hot",nameAr:"كابتشينو",nameEn:"Cappuccino",
+    descAr:"إسبريسو مع الحليب ورغوة ناعمة.",descEn:"Espresso with steamed milk and silky foam.",
+    price:90,tagAr:"الأكثر طلبًا",tagEn:"Popular",
+    image:"https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:3,category:"hot",nameAr:"لاتيه",nameEn:"Caffè Latte",
+    descAr:"قهوة ناعمة مع حليب كريمي.",descEn:"Smooth coffee blended with creamy milk.",
+    price:95,tagAr:"اختيار مميز",tagEn:"Favorite",
+    image:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:4,category:"cold",nameAr:"آيس لاتيه",nameEn:"Iced Latte",
+    descAr:"إسبريسو وحليب بارد مع الثلج.",descEn:"Espresso and cold milk served over ice.",
+    price:105,tagAr:"منعش",tagEn:"Refreshing",
+    image:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:5,category:"cold",nameAr:"آيس موكا",nameEn:"Iced Mocha",
+    descAr:"مزيج القهوة والشوكولاتة بطعم غني.",descEn:"Coffee and chocolate in a rich, chilled blend.",
+    price:115,tagAr:"شوكولاتة",tagEn:"Chocolate",
+    image:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:6,category:"cold",nameAr:"كولد برو",nameEn:"Cold Brew",
+    descAr:"قهوة باردة لعشاق المذاق الهادئ.",descEn:"Slow-steeped coffee with a smooth finish.",
+    price:100,tagAr:"مميز",tagEn:"Special",
+    image:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:7,category:"other",nameAr:"هوت شوكليت",nameEn:"Hot Chocolate",
+    descAr:"شوكولاتة دافئة بقوام غني.",descEn:"A comforting cup of rich, warm chocolate.",
+    price:95,tagAr:"دافي",tagEn:"Cozy",
+    image:"https://images.unsplash.com/photo-1542990253-0b8be4c7d2f4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:8,category:"other",nameAr:"ماتشا لاتيه",nameEn:"Matcha Latte",
+    descAr:"ماتشا مع الحليب بطعم متوازن.",descEn:"Matcha blended with milk for a balanced taste.",
+    price:120,tagAr:"اختيار مختلف",tagEn:"Different",
+    image:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id:9,category:"other",nameAr:"شاي أعشاب",nameEn:"Herbal Tea",
+    descAr:"كوب دافي للحظات الهادية.",descEn:"A warm cup for your quiet moments.",
+    price:55,tagAr:"بسيط",tagEn:"Simple",
+    image:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80"
+  }
+];
+
+let language = "ar";
+let activeFilter = "all";
+let cart = {};
+
+const $ = id => document.getElementById(id);
+
+function money(amount){
+  return language === "ar" ? `${amount} ج.م` : `EGP ${amount}`;
+}
+function safeText(text){
+  return String(text).replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[ch]));
+}
+
+function renderProducts(){
+  const list = productsData.filter(p => activeFilter === "all" || p.category === activeFilter);
+  $("products").innerHTML = list.map(p => `
+    <article class="product">
+      <div class="product-img">
+        <img src="${p.image}" alt="${safeText(language === "ar" ? p.nameAr : p.nameEn)}" loading="lazy">
+        <span class="tag">${language === "ar" ? p.tagAr : p.tagEn}</span>
+      </div>
+      <div class="product-info">
+        <div class="product-top">
+          <div>
+            <h3>${safeText(language === "ar" ? p.nameAr : p.nameEn)}</h3>
+            <div class="en-name">${safeText(language === "ar" ? p.nameEn : p.nameAr)}</div>
+          </div>
+          <div class="price">${money(p.price)}</div>
+        </div>
+        <p class="product-desc">${safeText(language === "ar" ? p.descAr : p.descEn)}</p>
+        <button class="add-btn" data-add="${p.id}">
+          ${language === "ar" ? "＋ أضف للسلة" : "＋ Add to Cart"}
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderCart(){
+  const entries = Object.entries(cart).filter(([,qty]) => qty > 0);
+  const count = entries.reduce((sum,[,qty]) => sum + qty,0);
+  const total = entries.reduce((sum,[id,qty]) => {
+    const product = productsData.find(p => p.id === Number(id));
+    return sum + product.price * qty;
+  },0);
+
+  $("cartCount").textContent = count;
+  $("cartTotal").textContent = money(total);
+
+  if(!entries.length){
+    $("cartItems").innerHTML = `
+      <div class="empty-cart">
+        <div style="font-size:42px;margin-bottom:10px">☕</div>
+        <p>${language === "ar" ? "سلتك لسه فاضية.<br>اختار مشروبك المفضل من المنيو." : "Your cart is empty.<br>Choose your favorite drink from the menu."}</p>
+      </div>`;
+    return;
+  }
+
+  $("cartItems").innerHTML = entries.map(([id,qty]) => {
+    const p = productsData.find(item => item.id === Number(id));
+    return `
+      <div class="cart-item">
+        <img src="${p.image}" alt="" loading="lazy">
+        <div>
+          <h4>${safeText(language === "ar" ? p.nameAr : p.nameEn)}</h4>
+          <p>${money(p.price * qty)}</p>
+          <div class="qty">
+            <button data-qty="${id}" data-delta="-1" aria-label="Decrease">−</button>
+            <span>${qty}</span>
+            <button data-qty="${id}" data-delta="1" aria-label="Increase">＋</button>
+          </div>
+        </div>
+        <button class="remove-btn" data-remove="${id}">${language === "ar" ? "حذف" : "Remove"}</button>
+      </div>`;
+  }).join("");
+}
+
+function toast(message){
+  $("toast").textContent = message;
+  $("toast").classList.add("show");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => $("toast").classList.remove("show"),2200);
+}
+
+function openCart(){
+  $("cartPanel").classList.add("open");
+  $("overlay").classList.add("show");
+  $("cartPanel").setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden";
+}
+function closeCart(){
+  $("cartPanel").classList.remove("open");
+  $("overlay").classList.remove("show");
+  $("cartPanel").setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
+
+function changeLanguage(){
+  language = language === "ar" ? "en" : "ar";
+  document.documentElement.lang = language;
+  document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  $("langBtn").textContent = language === "ar" ? "EN" : "عربي";
+  document.querySelectorAll("[data-ar][data-en]").forEach(el => {
+    el.innerHTML = el.dataset[language];
+  });
+  renderProducts();
+  renderCart();
+  document.querySelectorAll(".filter").forEach(btn => {
+    btn.classList.toggle("active",btn.dataset.filter === activeFilter);
+  });
+}
+
+function sendOrder(){
+  const entries = Object.entries(cart).filter(([,qty]) => qty > 0);
+  if(!entries.length){
+    toast(language === "ar" ? "ضيف مشروب للسلة الأول ☕" : "Add a drink to your cart first ☕");
+    return;
+  }
+
+  if(!/^\d{10,15}$/.test(WHATSAPP) || WHATSAPP === "201000000000"){
+    toast(language === "ar"
+      ? "الموقع تجريبي: ضيف رقم واتساب الكوفي في الكود أولًا."
+      : "Demo site: add the café's WhatsApp number in the code first.");
+    return;
+  }
+
+  const lines = entries.map(([id,qty]) => {
+    const p = productsData.find(item => item.id === Number(id));
+    return `• ${language === "ar" ? p.nameAr : p.nameEn} × ${qty} = ${p.price * qty} EGP`;
+  });
+
+  const total = entries.reduce((sum,[id,qty]) =>
+    sum + productsData.find(p => p.id === Number(id)).price * qty,0);
+
+  const message = [
+    language === "ar" ? "مرحبًا NOIR CAFÉ، عايز أطلب:" : "Hello NOIR CAFÉ, I'd like to order:",
+    "",
+    ...lines,
+    "",
+    `${language === "ar" ? "الإجمالي" : "Total"}: ${total} EGP`,
+    "",
+    language === "ar"
+      ? "من فضلكم أكدوا الطلب وتكلفة التوصيل."
+      : "Please confirm my order and delivery fee."
+  ].join("\n");
+
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,"_blank","noopener,noreferrer");
+}
+
+$("products").addEventListener("click",e => {
+  const button = e.target.closest("[data-add]");
+  if(!button) return;
+  const id = Number(button.dataset.add);
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+  button.textContent = language === "ar" ? "✓ اتضاف للسلة" : "✓ Added";
+  button.classList.add("added");
+  toast(language === "ar" ? "اتضاف للسلة بنجاح 🤎" : "Added to cart 🤎");
+  setTimeout(renderProducts,700);
+});
+
+$("cartItems").addEventListener("click",e => {
+  const qtyButton = e.target.closest("[data-qty]");
+  const removeButton = e.target.closest("[data-remove]");
+  if(qtyButton){
+    const id = qtyButton.dataset.qty;
+    cart[id] = (cart[id] || 0) + Number(qtyButton.dataset.delta);
+    if(cart[id] <= 0) delete cart[id];
+    renderCart();
+  }
+  if(removeButton){
+    delete cart[removeButton.dataset.remove];
+    renderCart();
+  }
+});
+
+$("filters").addEventListener("click",e => {
+  const button = e.target.closest("[data-filter]");
+  if(!button) return;
+  activeFilter = button.dataset.filter;
+  document.querySelectorAll(".filter").forEach(btn =>
+    btn.classList.toggle("active",btn === button));
+  renderProducts();
+});
+
+$("langBtn").addEventListener("click",changeLanguage);
+$("openCart").addEventListener("click",openCart);
+$("closeCart").addEventListener("click",closeCart);
+$("overlay").addEventListener("click",closeCart);
+$("checkout").addEventListener("click",sendOrder);
+$("contactOrder").addEventListener("click",() => {
+  if(Object.values(cart).some(qty => qty > 0)){
+    openCart();
+  }else{
+    document.querySelector("#menu").scrollIntoView({behavior:"smooth"});
+    toast(language === "ar" ? "اختار مشروبك الأول ☕" : "Choose your drink first ☕");
+  }
+});
+
+$("menuToggle").addEventListener("click",() => $("navlinks").classList.toggle("show"));
+$("navlinks").querySelectorAll("a").forEach(a =>
+  a.addEventListener("click",() => $("navlinks").classList.remove("show")));
+
+document.addEventListener("keydown",e => {
+  if(e.key === "Escape") closeCart();
+});
+
+$("year").textContent = new Date().getFullYear();
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
